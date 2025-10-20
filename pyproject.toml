@@ -2,7 +2,7 @@
 name = "prompai"
 version = "0.1.0"
 description = ""
-authors = ["kirillkiselev-slim <kiselev99kirill1501@gmail.com>"]
+authors = ["kiselev-kirill <kiselev99kirill1501@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
