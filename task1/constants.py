@@ -1,3 +1,5 @@
-MAX_COLUMN_NAME_LEN = 63
+MAX_COLUMN_BYTES_NAME_LEN = 63
 
 INI_POSTGRES_NAME = "postgres"
+
+SET_UUID_ID = {"id", "uuid"}

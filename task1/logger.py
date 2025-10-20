@@ -14,6 +14,7 @@ class DictToPgLogger:
         :param name: имя логгера
         """
         self.logger = logging.getLogger(name)
+        self.logger.setLevel(logging.INFO)
 
         handler = logging.StreamHandler()
         formatter = logging.Formatter(

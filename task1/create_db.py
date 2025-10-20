@@ -11,8 +11,7 @@ def main():
 
     Действия:
     1. Загружает переменные окружения через load_env_variables().
-    2. Создает пользователя PG_USER с паролем PG_PASSWORD.
-    3. Создает базу данных PG_NAME.
+    2. Создает базу данных PG_NAME.
     4. Выдает все привилегии новому пользователю.
 
     :raises subprocess.CalledProcessError: при ошибке выполнения SQL через psql
@@ -27,9 +26,12 @@ def main():
     copy_env = os.environ.copy()
 
     sql_statements = [
-        f"CREATE USER {db_user} WITH PASSWORD '{db_password}'; ",
-        f"CREATE DATABASE {db_name}; ",
-        f"GRANT ALL PRIVILEGES ON DATABASE {db_name} TO {db_user};"
+        f"CREATE USER {db_user} WITH PASSWORD '{db_password}';",
+        f"CREATE DATABASE {db_name} OWNER {db_user};",
+        f"ALTER SCHEMA public OWNER TO {db_user};",
+        f"GRANT ALL PRIVILEGES ON DATABASE {db_name} TO {db_user};",
+        f"GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO {db_user};",
+        f"GRANT CREATE, USAGE ON SCHEMA public TO {db_user};"
     ]
     for statement in sql_statements:
         cmd = [
