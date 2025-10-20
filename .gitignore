@@ -12,7 +12,6 @@ requirements.txt
 # Virtual Environments
 .venv/
 venv/
-ENV/
 
 # IDE
 ../.idea/
@@ -38,13 +37,8 @@ log/
 
 # Poetry
 # poetry.lock # https://stackoverflow.com/questions/61037557/should-i-commit-lock-file-changes-separately-what-should-i-write-for-the-commi/61076546#61076546
-poetry.toml
 #poetry.lock
 
-# Development
-.DS_Store
-.directory
-Thumbs.db
 
 # Git
 *.gitattributes
