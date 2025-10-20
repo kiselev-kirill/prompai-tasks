@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+requirements.txt
+
+
+# ini files
+*.ini
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+
+# IDE
+../.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.*.sw?
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+test_logs/
+logs/
+log/
+
+# Cache
+.cache/
+
+# Poetry
+# poetry.lock # https://stackoverflow.com/questions/61037557/should-i-commit-lock-file-changes-separately-what-should-i-write-for-the-commi/61076546#61076546
+poetry.toml
+#poetry.lock
+
+# Development
+.DS_Store
+.directory
+Thumbs.db
+
+# Git
+*.gitattributes

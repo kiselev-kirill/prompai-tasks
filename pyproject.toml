@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "prompai"
+version = "0.1.0"
+description = ""
+authors = ["kirillkiselev-slim <kiselev99kirill1501@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+psycopg2 = "^2.9.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
