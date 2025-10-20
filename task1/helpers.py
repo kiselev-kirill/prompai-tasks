@@ -32,8 +32,11 @@ def read_ini_config(path: str = INI_FILE) -> dict[str, str]:
     """
     Считывает конфигурацию PostgreSQL из INI-файла и подставляет значения из переменных окружения.
 
-    Если значение в INI начинается с `$`, функция заменяет его на соответствующую
-    переменную окружения (ключ берется в верхнем регистре).
+    Поведение:
+    - Сохраняет регистр ключей.
+    - Если значение в INI начинается с `$`, заменяет его на соответствующую
+      переменную окружения (например, $DB_NAME -> os.environ["DB_NAME"]).
+    - Возвращает словарь с параметрами подключения к PostgreSQL.
 
     :param path: путь к INI-файлу (по умолчанию INI_FILE)
     :return: словарь с параметрами подключения к PostgreSQL
@@ -47,5 +50,8 @@ def read_ini_config(path: str = INI_FILE) -> dict[str, str]:
     ini_config = dict(parser[INI_POSTGRES_NAME])
     for ini_key, ini_value in ini_config.items():
         if ini_value.startswith("$"):
-            ini_config[ini_key] = env_variables[ini_key.upper()]
+            _, value = ini_value.split("$")
+            ini_config[ini_key] = env_variables[value]
     return ini_config
+
+
