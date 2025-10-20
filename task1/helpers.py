@@ -1,7 +1,9 @@
 import os
+from configparser import ConfigParser
 from pathlib import Path
 
 from config import ENV_FILE, INI_FILE
+from constants import INI_POSTGRES_NAME
 from logger import logger
 
 
@@ -26,5 +28,24 @@ def load_env_variables(path: Path = ENV_FILE) -> None:
             os.environ[env_name] = env_value  # сетим их в окружении
 
 
+def read_ini_config(path: str = INI_FILE) -> dict[str, str]:
+    """
+    Считывает конфигурацию PostgreSQL из INI-файла и подставляет значения из переменных окружения.
 
+    Если значение в INI начинается с `$`, функция заменяет его на соответствующую
+    переменную окружения (ключ берется в верхнем регистре).
 
+    :param path: путь к INI-файлу (по умолчанию INI_FILE)
+    :return: словарь с параметрами подключения к PostgreSQL
+    """
+    load_env_variables()
+    env_variables = os.environ.copy()
+
+    parser = ConfigParser()
+    parser.read(path)
+
+    ini_config = dict(parser[INI_POSTGRES_NAME])
+    for ini_key, ini_value in ini_config.items():
+        if ini_value.startswith("$"):
+            ini_config[ini_key] = env_variables[ini_key.upper()]
+    return ini_config

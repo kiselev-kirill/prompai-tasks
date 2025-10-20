@@ -1,1 +1,3 @@
 MAX_COLUMN_NAME_LEN = 63
+
+INI_POSTGRES_NAME = "postgres"
