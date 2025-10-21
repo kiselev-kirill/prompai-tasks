@@ -43,7 +43,11 @@
    ```
 
 - Создайте файл `.env` по примеру `.env.example`, добавьте вашти значения. Пользователь, пароль и название БД подхватятся из этого файла.
-
+    ```.env
+    PG_PASSWORD=SuperSecretPassword!
+    PG_NAME=dict_to_pg
+    PG_USER=my_pg_user
+    ```
 - Создайте файл `config.ini` в директории task1/:
    ```ini
    [postgres]
