@@ -24,13 +24,23 @@
 1. Установите [Poetry](https://python-poetry.org/) ( версия `0.1.0` для проекта).
 2. Установите зависимости:
     ```bash
-    poetry install
+    poetry install --no-root
     ```
 ---
 
-## Файл `.env` 
+## Файл `.env` и `config.ini`
 
-Создайте файл `.env` в директории task1/ по примеру `.env.example`. Пользователь, пароль и название БД подхватятся из этого файла.
+- Создайте файл `.env` в директории task1/ по примеру `.env.example`. Пользователь, пароль и название БД подхватятся из этого файла.
+
+- Создайте файл `config.ini` в директории task1/:
+```ini
+[postgres]
+host = localhost
+port = 5432
+dbname = $PG_NAME
+user = $PG_USER
+password = $PG_PASSWORD
+```
 
 ---
 ## Локальная настройка базы данных PostgreSQL
