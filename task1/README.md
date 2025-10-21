@@ -24,11 +24,6 @@
 1. Установите [Poetry](https://python-poetry.org/) ( версия `0.1.0` для проекта).
 2. Перейдите в директорию prompai-tasks
 
-   ### Linux / macOS
-   ```bash
-   cd prompai-tasks
-   ```
-   #### Windows
    ```bash
    cd prompai-tasks
    ```
@@ -43,16 +38,11 @@
 
 - Перейдите в директорию task1
 
-   ### Linux / macOS
    ```bash
-   cd prompai-tasks
-   ```
-   #### Windows
-   ```bash
-   cd prompai-tasks
+   cd task1
    ```
 
-- Создайте файл `.env` по примеру `.env.example`. Пользователь, пароль и название БД подхватятся из этого файла.
+- Создайте файл `.env` по примеру `.env.example`, добавьте вашти значения. Пользователь, пароль и название БД подхватятся из этого файла.
 
 - Создайте файл `config.ini` в директории task1/:
    ```ini
@@ -68,7 +58,6 @@
 ## Локальная настройка базы данных PostgreSQL
 
 Для запуска локальной базы данных используйте скрипт `create_db.py`
-
 
 ### Linux / macOS
 
@@ -88,9 +77,6 @@ python create_db.py
 
 ---
 ## Запустите sample.json
-
-
-### Перейдите в директорию task1
 
 ### Linux / macOS
 ```bash
