@@ -65,3 +65,19 @@ python3 create_db.py
 ```bash
 python create_db.py
 ```
+
+---
+## Запустите sample.json
+
+
+### Перейдите в директорию task1
+
+### Linux / macOS
+```bash
+python3 dict_to_pg.py --table users --input sample.json
+```
+
+### Windows
+```bash
+python dict_to_pg.py --table users --input sample.json
+```
