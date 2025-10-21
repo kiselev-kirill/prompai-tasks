@@ -40,8 +40,14 @@
 
 ### Перейдите в директорию task1
 
+### Linux / macOS
 ```bash
-cd task1/
+cd prompai-tasks/task1/
+```
+
+### Windows
+```bash
+cd prompai-tasks\task1\
 ```
 
 ### Linux / macOS

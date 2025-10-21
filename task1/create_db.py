@@ -34,6 +34,7 @@ def main():
         f"GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO {db_user};",
         f"GRANT CREATE, USAGE ON SCHEMA public TO {db_user};"
     ]
+    user_system = platform.system()
     for statement in sql_statements:
         linux_cmd = [
             "psql",
@@ -47,7 +48,6 @@ def main():
             "-h", db_host,
             "-c", statement
         ]
-        user_system = platform.system()
         try:
             if user_system in ("Linux", "Darwin"):
                 subprocess.run(linux_cmd, check=True, env=copy_env)
