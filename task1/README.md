@@ -63,21 +63,14 @@
 
 Для запуска локальной базы данных используйте скрипт `create_db.py`
 
-### Linux / macOS
-
 Откройте терминал и выполните команду:
 
 ```bash
-python3 create_db.py
+poetry run python create_db.py
 ```
 
 ### Windows
 
-Откройте PowerShell или Командную строку (cmd) и выполните команду:
-
-```bash
-python create_db.py
-```
 
 ---
 ## Запустите sample.json
