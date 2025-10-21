@@ -1,5 +1,6 @@
 import os
 import subprocess
+import platform
 
 from helpers import load_env_variables
 from logger import logger
@@ -7,12 +8,12 @@ from logger import logger
 
 def main():
     """
-    Создает локальную базу данных PostgreSQL и пользователя с правами доступа.
+    Создает локальную базу PostgreSQL и пользователя с правами доступа.
 
     Действия:
     1. Загружает переменные окружения через load_env_variables().
-    2. Создает базу данных PG_NAME.
-    4. Выдает все привилегии новому пользователю.
+    2. Создает пользователя и базу данных, назначает владельца схемы public.
+    3. Выдает пользователю все необходимые привилегии.
 
     :raises subprocess.CalledProcessError: при ошибке выполнения SQL через psql
     """
@@ -34,14 +35,24 @@ def main():
         f"GRANT CREATE, USAGE ON SCHEMA public TO {db_user};"
     ]
     for statement in sql_statements:
-        cmd = [
+        linux_cmd = [
             "psql",
             "-U", admin_user,
             "-h", db_host,
             "-c", statement
         ]
+        windows_cmd = [
+            r"C:\Program Files\PostgreSQL\17\bin\psql.exe",
+            "-U", admin_user,
+            "-h", db_host,
+            "-c", statement
+        ]
+        user_system = platform.system()
         try:
-            subprocess.run(cmd, check=True, env=copy_env)
+            if user_system in ("Linux", "Darwin"):
+                subprocess.run(linux_cmd, check=True, env=copy_env)
+            elif platform.system() == "Windows":
+                subprocess.run(windows_cmd, check=True, env=copy_env)
         except subprocess.CalledProcessError as err:
             logger.error(f"Ошибка при исполнении sql скрипта <{statement}>: {err}")
 
