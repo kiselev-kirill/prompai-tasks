@@ -78,12 +78,6 @@ python create_db.py
 ---
 ## Запустите sample.json
 
-### Linux / macOS
 ```bash
-python3 dict_to_pg.py --table users --input sample.json
-```
-
-### Windows
-```bash
-python dict_to_pg.py --table users --input sample.json
+poetry run python3 dict_to_pg.py --table users --input sample.json
 ```
