@@ -21,7 +21,10 @@
 
 ## Установка и запуск
 
-1. Установите [Poetry](https://python-poetry.org/) ( версия `0.1.0` для проекта).
+1. Установите [Poetry](https://python-poetry.org/docs/#installation) ( версия `0.1.0` для проекта). 
+    ```shell
+    pipx install poetry
+    ```
 2. Перейдите в директорию prompai-tasks
 
    ```bash
