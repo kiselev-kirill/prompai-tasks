@@ -64,7 +64,7 @@
     PG_NAME=dict_to_pg
     PG_USER=my_pg_user
     ```
-- Создайте файл `config.ini` в директории task1/. **Не меняйте значения с '$'**
+- Создайте файл `config.ini` в директории task1/. **Не меняйте значения!**
    ```ini
    [postgres]
    host = localhost
