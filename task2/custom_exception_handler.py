@@ -15,7 +15,7 @@ class ExceptionReport:
         stack_trace (list[dict]): Полный стек-трейс с локальными переменными.
     """
 
-    __slots__ = ("_error_name", "_module_name", "_stack_trace")
+    __slots__ = ("_error_name", "_module_name", "_stack_trace")  # Допустимые атрибуты
 
     def __init__(self, exc: BaseException):
         """
