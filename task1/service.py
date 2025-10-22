@@ -260,7 +260,7 @@ class PgJsonUpserter:
         :return: Кортеж из трёх целых чисел:
             - inserted: количество вставленных записей (без первичного ключа)
             - updated: количество обновлённых записей (с существующим первичным ключом)
-            - added_columns: количество добавленных или изменённых колонок
+            - count_columns_after - columns_count_before: количество добавленных или изменённых колонок
         """
         inserted, updated, columns_count_before = 0, 0, self.count_columns(table)
         if not records:
