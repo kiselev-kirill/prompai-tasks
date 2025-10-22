@@ -110,6 +110,8 @@ class ExceptionReport:
 
 
 if __name__ == "__main__":
+
+    # test функция
     def test_truncation():
         big_list = list(range(1000))
         long_s = "x" * 500
