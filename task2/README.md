@@ -48,7 +48,7 @@ if __name__ == "__main__":
       "locals": {
         "big_list": "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 2...",
         "long_s": "'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...",
-        "var": "{'key': 'valuevaluevaluevaluevaluevaluevaluevaluevaluevaluevaluevaluevaluevaluev..."
+        "var": "{'key': 'valuevaluevaluevaluevaluevaluevaluevaluevaluevaluevaluevaluevaluevaluev...}"
       }
     },
     {
@@ -57,7 +57,7 @@ if __name__ == "__main__":
       "function": "foo",
       "code": "test_truncation()",
       "locals": {
-        "long_set": "{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 2..."
+        "long_set": "{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 2...}"
       }
     },
     {
@@ -66,10 +66,9 @@ if __name__ == "__main__":
       "function": "outer",
       "code": "foo()",
       "locals": {
-        "big_list_2": "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 2..."
+        "big_list_2": "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 2...]"
       }
     }
-  ]
 }
 ```
 --- 
