@@ -22,9 +22,10 @@
 
 ## Требования
 
-1. Установлен PostgreSQL 17 локально
-2. Установлен poetry `version = 0.1.0` для установки pcycopg2
-3. Клиент `psql` должен быть доступен в PATH. Для Windows путь должен быть `C:\Program Files\PostgreSQL\17\bin\psql.exe`
+1. Установлен Python 3.11
+2. Установлен PostgreSQL 17 локально
+3. Установлен poetry `version = 0.1.0` для установки pcycopg2
+4. Клиент `psql` должен быть доступен в PATH. Для Windows путь должен быть `C:\Program Files\PostgreSQL\17\bin\psql.exe`
 
 ---
 
