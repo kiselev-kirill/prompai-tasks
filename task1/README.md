@@ -72,12 +72,12 @@
 poetry run python create_db.py
 ```
 
-### Windows
-
+### ❗ Windows ❗
+**Возможно вам придется ввести пароль `postgres` везде после выше выполненного скрипта, где запрашивается (6 раз).**
 
 ---
 ## Запустите sample.json
 
 ```bash
-poetry run python3 dict_to_pg.py --table users --input sample.json
+poetry run python dict_to_pg.py --table users --input sample.json
 ```
