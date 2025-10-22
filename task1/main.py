@@ -9,8 +9,12 @@ from logger import logger
 
 def main():
     parser = argparse.ArgumentParser(description="Сохраняет JSON в PostgreSQL")
-    parser.add_argument("--table", required=True, help="Имя таблицы")
-    parser.add_argument("--input", required=True, help="Путь к JSON файлу")
+    parser.add_argument(
+        "--table", required=True, help="Имя таблицы", type=str
+    )
+    parser.add_argument(
+        "--input", required=True, help="Путь к JSON файлу", type=str
+    )
     args = parser.parse_args()
 
     loader: PgJsonUpserter = PgJsonUpserter()
