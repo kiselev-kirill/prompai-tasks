@@ -2,7 +2,7 @@ import traceback
 import types
 import json
 
-MAX_REPR_LEN = 120  # максимальная длина строки при выводе локальных переменных
+MAX_REPR_LEN = 80  # максимальная длина строки при выводе локальных переменных
 
 
 class ExceptionReport:
@@ -18,6 +18,14 @@ class ExceptionReport:
     __slots__ = ("_error_name", "_module_name", "_stack_trace")
 
     def __init__(self, exc: BaseException):
+        """
+        Инициализация нашего класса.
+
+        - Задаем имя error_name, module_name
+        - Извлекаем стек-трейс
+
+        :param exc: BaseException базовый объект исключения
+        """
         self._error_name = f"{exc.__class__.__name__}: {exc}"
         tb = exc.__traceback__
         if tb is not None:
@@ -53,7 +61,7 @@ class ExceptionReport:
 
     def _extract_stack(self, tb: types.TracebackType) -> list[dict]:
         """
-        Извлекает стек-трейс с локальными переменными.
+        Извлекает стек трейс с локальными переменными.
 
         - Каждый кадр превращается в словарь с ключами file, line, function, code, locals.
         - Локальные переменные приводятся к строкам с усечением длинных значений.
@@ -66,11 +74,11 @@ class ExceptionReport:
         current_tb = tb
 
         for frame in frame_summary:
+            locals_filtered = {}
             if current_tb is not None:
                 locals_dict_copy = current_tb.tb_frame.f_locals.copy()
                 locals_dict_copy.pop("err", None)
 
-                locals_filtered = {}
                 for key, value in locals_dict_copy.items():
                     repr_value = repr(value)
                     if len(repr_value) > MAX_REPR_LEN:
@@ -78,8 +86,6 @@ class ExceptionReport:
                     else:
                         locals_filtered[key] = repr_value
                 current_tb = current_tb.tb_next
-            else:
-                locals_filtered = {}
 
             stack_trace.append({
                 "file": frame.filename,
@@ -111,7 +117,7 @@ class ExceptionReport:
 
 if __name__ == "__main__":
 
-    # test функция
+    # test функция, где исключение срабатывает
     def test_truncation():
         big_list = list(range(1000))
         long_s = "x" * 500
@@ -120,10 +126,13 @@ if __name__ == "__main__":
 
 
     def foo():
+        long_set = set(range(1000))
         test_truncation()
 
 
     def outer():
+        big_list_2 = list(range(1000))
+
         try:
             foo()
         except BaseException as err:
