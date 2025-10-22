@@ -34,10 +34,10 @@ cd task3
 - Запустите скрипт
 ### Windows
 ```shell
-python worker_pool.py
+python worker_pool.py --workers 4 --limit 1000
 ```
 
 ### Linux / MacOS
 ```shell
-python3 woorker_pool.py
+python3 worker_pool.py --workers 4 --limit 1000
 ```
