@@ -81,7 +81,13 @@ if __name__ == "__main__":
 --- 
 
 ## Запуск
+- Перейдите в директорию task2
 
+```bash
+cd task2
+```
+  
+- Запустите скрипт
 ### Windows
 ```shell
 python custom_exception_handler.py

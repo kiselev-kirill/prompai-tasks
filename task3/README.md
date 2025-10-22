@@ -25,6 +25,13 @@
 
 ## Запуск
 
+- Перейдите в директорию task2
+
+```bash
+cd task2
+```
+  
+- Запустите скрипт
 ### Windows
 ```shell
 python worker_pool.py
